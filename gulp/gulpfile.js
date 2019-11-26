@@ -24,9 +24,7 @@ function pugClient() {
 		.pipe(dest(`../pug-client`))
 }
 
-function build() {
-	return parallel(pug, pugClient);
-}
+const build = parallel(pug, pugClient);
 
 async function watchFiles() {
 	watch(globs.pug, pug);
@@ -34,6 +32,6 @@ async function watchFiles() {
 }
 
 module.exports = {
-	default: parallel(build(), watchFiles),
-	build: build(),
+	default: parallel(build, watchFiles),
+	build: build,
 };
