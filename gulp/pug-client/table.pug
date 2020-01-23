@@ -1,7 +1,7 @@
 table
 	tbody
 		for property in properties
-			if property.status !== `ED`
+			if !/ED|NOTE/.test(property.status)
 				tr
 					td.property= property.property
 					td: a(href=property.url)= property.title

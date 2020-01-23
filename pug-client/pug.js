@@ -18,7 +18,7 @@ pug_html = pug_html + "\u003Ctbody\u003E";
       for (var pug_index0 = 0, $$l = $$obj.length; pug_index0 < $$l; pug_index0++) {
         var property = $$obj[pug_index0];
 ;pug_debug_line = 4;pug_debug_filename = "Pug";
-if (property.status !== `ED`) {
+if (!/ED|NOTE/.test(property.status)) {
 ;pug_debug_line = 5;pug_debug_filename = "Pug";
 pug_html = pug_html + "\u003Ctr\u003E";
 ;pug_debug_line = 6;pug_debug_filename = "Pug";
@@ -43,7 +43,7 @@ pug_html = pug_html + (pug_escape(null == (pug_interp = property.status) ? "" : 
       $$l++;
       var property = $$obj[pug_index0];
 ;pug_debug_line = 4;pug_debug_filename = "Pug";
-if (property.status !== `ED`) {
+if (!/ED|NOTE/.test(property.status)) {
 ;pug_debug_line = 5;pug_debug_filename = "Pug";
 pug_html = pug_html + "\u003Ctr\u003E";
 ;pug_debug_line = 6;pug_debug_filename = "Pug";
