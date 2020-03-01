@@ -1,37 +1,28 @@
 const
-	gulpPug = require(`gulp-pug`),
-	gulpPugClient = require(`gulp-pug-client`),
-	{
-		src,
-		dest,
-		series,
-		parallel,
-		watch,
+	gulpElm = require(`gulp-elm`),
+	gulpRename = require(`gulp-rename`),
+	{ src
+	, dest
+	, parallel
+	, watch
 	} = require(`gulp`),
+	input = `./`,
+	output = `../`,
 	globs = {};
 
-globs.pug = `*.pug`;
-function pug() {
-	return src(globs.pug)
-		.pipe(gulpPug())
-		.pipe(dest(`..`));
+globs.elm = input + `src/Main.elm`;
+function elm() {
+	return src(globs.elm)
+		.pipe(gulpElm({cwd: input}))
+		.pipe(gulpRename(`elm.js`))
+		.pipe(dest(output));
 }
-
-globs.pugClient = `pug-client/*.pug`;
-function pugClient() {
-	return src(globs.pugClient)
-		.pipe(gulpPugClient())
-		.pipe(dest(`../pug-client`))
-}
-
-const build = parallel(pug, pugClient);
 
 async function watchFiles() {
-	watch(globs.pug, pug);
-	watch(globs.pugClient, pugClient);
+	const cry = {usePolling: true};
+	watch(input + `src/**/*.elm`, cry, elm);
 }
 
 module.exports = {
-	default: parallel(build, watchFiles),
-	build: build,
+	default: parallel(elm, watchFiles),
 };
