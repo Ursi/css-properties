@@ -1,0 +1,3 @@
+[submodule "customs"]
+	path = customs
+	url = https://github.com/ursi/customs.git
