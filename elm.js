@@ -9385,7 +9385,7 @@ var $author$project$Main$view = function (model) {
 						]);
 				}
 			}()),
-		title: ''
+		title: 'CSS Properties'
 	};
 };
 var $author$project$Main$main = $elm$browser$Browser$document(

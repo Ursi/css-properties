@@ -197,7 +197,7 @@ subscriptions _ =
 
 view : Model -> Document Msg
 view model =
-    { title = ""
+    { title = "CSS Properties"
     , body =
         (case model.properties of
             Just list ->
