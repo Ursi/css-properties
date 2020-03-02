@@ -3,7 +3,7 @@ module Main exposing (..)
 import Browser exposing (Document)
 import Browser.Dom as Dom
 import Browser.Events as BE
-import Css as C exposing (Em, Style)
+import Css as C exposing (Color, Em, Style)
 import Css.Colors exposing (..)
 import Html.Styled as H exposing (Html)
 import Html.Styled.Attributes as A
@@ -205,7 +205,7 @@ view model =
                     H.div
                         [ E.onMouseLeave HideHelp
                         , A.css
-                            [ C.backgroundColor C.inherit
+                            [ C.backgroundColor helpColor
                             , helpPlacement
                             , C.padding <| C.rem 1
                             , C.border3 (C.px 1) C.solid black
@@ -226,6 +226,7 @@ view model =
                             [ C.width helpIconSize
                             , C.height helpIconSize
                             , C.borderRadius helpIconSize
+                            , C.backgroundColor helpColor
                             , helpPlacement
                             , C.border3 (C.px 1) C.solid black
                             , doubleCenter
@@ -268,6 +269,11 @@ view model =
         )
             |> List.map H.toUnstyled
     }
+
+
+helpColor : Color
+helpColor =
+    white
 
 
 helpPlacement : Style
