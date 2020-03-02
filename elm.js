@@ -8533,6 +8533,8 @@ var $rtfeldman$elm_css$Html$Styled$Internal$css = function (styles) {
 var $rtfeldman$elm_css$Html$Styled$Attributes$css = $rtfeldman$elm_css$Html$Styled$Internal$css;
 var $rtfeldman$elm_css$Css$displayFlex = A2($rtfeldman$elm_css$Css$property, 'display', 'flex');
 var $rtfeldman$elm_css$Html$Styled$div = $rtfeldman$elm_css$Html$Styled$node('div');
+var $rtfeldman$elm_css$Css$EmUnits = {$: 'EmUnits'};
+var $rtfeldman$elm_css$Css$em = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, $rtfeldman$elm_css$Css$EmUnits, 'em');
 var $rtfeldman$elm_css$Css$height = $rtfeldman$elm_css$Css$prop1('height');
 var $rtfeldman$elm_css$VirtualDom$Styled$property = F2(
 	function (key, value) {
@@ -8573,8 +8575,6 @@ var $rtfeldman$elm_css$Css$prop4 = F5(
 	});
 var $rtfeldman$elm_css$Css$margin4 = $rtfeldman$elm_css$Css$prop4('margin');
 var $rtfeldman$elm_css$Css$paddingBottom = $rtfeldman$elm_css$Css$prop1('padding-bottom');
-var $rtfeldman$elm_css$Css$RemUnits = {$: 'RemUnits'};
-var $rtfeldman$elm_css$Css$rem = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, $rtfeldman$elm_css$Css$RemUnits, 'rem');
 var $rtfeldman$elm_css$Html$Styled$table = $rtfeldman$elm_css$Html$Styled$node('table');
 var $rtfeldman$elm_css$Html$Styled$tbody = $rtfeldman$elm_css$Html$Styled$node('tbody');
 var $rtfeldman$elm_css$Css$prop2 = F3(
@@ -8589,8 +8589,6 @@ var $rtfeldman$elm_css$Css$prop2 = F3(
 					[argA.value, argB.value])));
 	});
 var $rtfeldman$elm_css$Css$border2 = $rtfeldman$elm_css$Css$prop2('border');
-var $rtfeldman$elm_css$Css$EmUnits = {$: 'EmUnits'};
-var $rtfeldman$elm_css$Css$em = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, $rtfeldman$elm_css$Css$EmUnits, 'em');
 var $rtfeldman$elm_css$Css$padding = $rtfeldman$elm_css$Css$prop1('padding');
 var $rtfeldman$elm_css$Css$PxUnits = {$: 'PxUnits'};
 var $rtfeldman$elm_css$Css$px = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, $rtfeldman$elm_css$Css$PxUnits, 'px');
@@ -9124,7 +9122,7 @@ var $author$project$Main$view = function (model) {
 											$rtfeldman$elm_css$Css$borderCollapse($rtfeldman$elm_css$Css$collapse),
 											A4(
 											$rtfeldman$elm_css$Css$margin4,
-											$rtfeldman$elm_css$Css$rem(1),
+											$rtfeldman$elm_css$Css$em(1),
 											$rtfeldman$elm_css$Css$auto,
 											$rtfeldman$elm_css$Css$vh(100),
 											$rtfeldman$elm_css$Css$auto),

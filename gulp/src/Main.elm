@@ -193,7 +193,7 @@ view model =
                     [ A.css
                         [ C.borderCollapse C.collapse
                         , C.margin4
-                            (C.rem 1)
+                            (C.em 1)
                             C.auto
                             (C.vh 100)
                             C.auto
