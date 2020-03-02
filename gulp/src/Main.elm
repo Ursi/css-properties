@@ -3,9 +3,11 @@ module Main exposing (..)
 import Browser exposing (Document)
 import Browser.Dom as Dom
 import Browser.Events as BE
-import Css as C
+import Css as C exposing (Em, Style)
+import Css.Colors exposing (..)
 import Html.Styled as H exposing (Html)
 import Html.Styled.Attributes as A
+import Html.Styled.Events as E
 import Http
 import Json.Decode as D
 import Process exposing (Id)
@@ -30,6 +32,7 @@ type alias Model =
     { properties : Maybe (List Property)
     , search : String
     , pid : Maybe Id
+    , showingHelp : Bool
     }
 
 
@@ -38,6 +41,7 @@ init _ =
     ( { properties = Nothing
       , search = ""
       , pid = Nothing
+      , showingHelp = False
       }
     , Http.get
         { url = "https://runkit.io/ursi/css-properties/branches/master"
@@ -80,12 +84,20 @@ type Msg
     | CharacterPressed String
     | PidReceived Id
     | ResetSearch
+    | ShowHelp
+    | HideHelp
     | NoOp
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
+        HideHelp ->
+            ( { model | showingHelp = False }, Cmd.none )
+
+        ShowHelp ->
+            ( { model | showingHelp = True }, Cmd.none )
+
         ResetSearch ->
             ( { model | search = "" }, Cmd.none )
 
@@ -187,9 +199,40 @@ view : Model -> Document Msg
 view model =
     { title = ""
     , body =
-        [ case model.properties of
+        (case model.properties of
             Just list ->
-                H.table
+                [ if model.showingHelp == True then
+                    H.div
+                        [ E.onMouseLeave HideHelp
+                        , A.css
+                            [ C.backgroundColor C.inherit
+                            , helpPlacement
+                            , C.padding <| C.rem 1
+                            , C.border3 (C.px 1) C.solid black
+                            ]
+                        ]
+                        [ H.text "Start typing to search the page."
+                        , H.br [] []
+                        , H.kbd [] [ H.text "Space" ]
+                        , H.text " is intpreted as "
+                        , H.kbd [] [ H.text "-" ]
+                        , H.text " for convenience."
+                        ]
+
+                  else
+                    H.div
+                        [ E.onMouseEnter ShowHelp
+                        , A.css
+                            [ C.width helpIconSize
+                            , C.height helpIconSize
+                            , C.borderRadius helpIconSize
+                            , helpPlacement
+                            , C.border3 (C.px 1) C.solid black
+                            , doubleCenter
+                            ]
+                        ]
+                        [ H.text "?" ]
+                , H.table
                     [ A.css
                         [ C.borderCollapse C.collapse
                         , C.margin4
@@ -211,20 +254,43 @@ view model =
                             )
                             list
                     ]
+                ]
 
             Nothing ->
-                H.div
+                [ H.div
                     [ A.css
                         [ C.height <| C.vh 100
-                        , C.displayFlex
-                        , C.justifyContent C.center
-                        , C.alignItems C.center
+                        , doubleCenter
                         ]
                     ]
                     [ H.node "disk-loader" [ A.attribute "size" "3rem" ] [] ]
-        ]
+                ]
+        )
             |> List.map H.toUnstyled
     }
+
+
+helpPlacement : Style
+helpPlacement =
+    C.batch
+        [ C.position C.fixed
+        , C.top <| C.rem 1
+        , C.left <| C.rem 1
+        ]
+
+
+helpIconSize : Em
+helpIconSize =
+    C.em 1.2
+
+
+doubleCenter : Style
+doubleCenter =
+    C.batch
+        [ C.displayFlex
+        , C.justifyContent C.center
+        , C.alignItems C.center
+        ]
 
 
 td : List (Html Msg) -> Html Msg
