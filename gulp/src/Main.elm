@@ -280,8 +280,8 @@ helpPlacement : Style
 helpPlacement =
     C.batch
         [ C.position C.fixed
-        , C.top <| C.rem 1
-        , C.left <| C.rem 1
+        , C.bottom <| C.rem 1
+        , C.right <| C.rem 1
         ]
 
 

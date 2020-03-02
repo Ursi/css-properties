@@ -8608,19 +8608,19 @@ var $rtfeldman$elm_css$Css$height = $rtfeldman$elm_css$Css$prop1('height');
 var $ursi$elm_css_colors$Css$Colors$white = A3($rtfeldman$elm_css$Css$rgb, 255, 255, 255);
 var $author$project$Main$helpColor = $ursi$elm_css_colors$Css$Colors$white;
 var $author$project$Main$helpIconSize = $rtfeldman$elm_css$Css$em(1.2);
+var $rtfeldman$elm_css$Css$bottom = $rtfeldman$elm_css$Css$prop1('bottom');
 var $rtfeldman$elm_css$Css$fixed = {backgroundAttachment: $rtfeldman$elm_css$Css$Structure$Compatible, position: $rtfeldman$elm_css$Css$Structure$Compatible, tableLayout: $rtfeldman$elm_css$Css$Structure$Compatible, value: 'fixed'};
-var $rtfeldman$elm_css$Css$left = $rtfeldman$elm_css$Css$prop1('left');
 var $rtfeldman$elm_css$Css$position = $rtfeldman$elm_css$Css$prop1('position');
 var $rtfeldman$elm_css$Css$RemUnits = {$: 'RemUnits'};
 var $rtfeldman$elm_css$Css$rem = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, $rtfeldman$elm_css$Css$RemUnits, 'rem');
-var $rtfeldman$elm_css$Css$top = $rtfeldman$elm_css$Css$prop1('top');
+var $rtfeldman$elm_css$Css$right = $rtfeldman$elm_css$Css$prop1('right');
 var $author$project$Main$helpPlacement = $rtfeldman$elm_css$Css$batch(
 	_List_fromArray(
 		[
 			$rtfeldman$elm_css$Css$position($rtfeldman$elm_css$Css$fixed),
-			$rtfeldman$elm_css$Css$top(
+			$rtfeldman$elm_css$Css$bottom(
 			$rtfeldman$elm_css$Css$rem(1)),
-			$rtfeldman$elm_css$Css$left(
+			$rtfeldman$elm_css$Css$right(
 			$rtfeldman$elm_css$Css$rem(1))
 		]));
 var $rtfeldman$elm_css$VirtualDom$Styled$property = F2(
