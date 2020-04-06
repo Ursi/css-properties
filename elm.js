@@ -8692,6 +8692,7 @@ var $rtfeldman$elm_css$Css$PxUnits = {$: 'PxUnits'};
 var $rtfeldman$elm_css$Css$px = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, $rtfeldman$elm_css$Css$PxUnits, 'px');
 var $rtfeldman$elm_css$Css$solid = {borderStyle: $rtfeldman$elm_css$Css$Structure$Compatible, textDecorationStyle: $rtfeldman$elm_css$Css$Structure$Compatible, value: 'solid'};
 var $rtfeldman$elm_css$Html$Styled$table = $rtfeldman$elm_css$Html$Styled$node('table');
+var $rtfeldman$elm_css$Html$Styled$Attributes$target = $rtfeldman$elm_css$Html$Styled$Attributes$stringProperty('target');
 var $rtfeldman$elm_css$Html$Styled$tbody = $rtfeldman$elm_css$Html$Styled$node('tbody');
 var $rtfeldman$elm_css$Css$prop2 = F3(
 	function (key, argA, argB) {
@@ -9339,7 +9340,8 @@ var $author$project$Main$view = function (model) {
 																$rtfeldman$elm_css$Html$Styled$a,
 																_List_fromArray(
 																	[
-																		$rtfeldman$elm_css$Html$Styled$Attributes$href(url)
+																		$rtfeldman$elm_css$Html$Styled$Attributes$href(url),
+																		$rtfeldman$elm_css$Html$Styled$Attributes$target('_blank')
 																	]),
 																_List_fromArray(
 																	[

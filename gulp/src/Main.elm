@@ -249,7 +249,13 @@ view model =
                             (\{ property, title, url, status } ->
                                 H.tr [ A.id <| property ]
                                     [ td [ H.text property ]
-                                    , td [ H.a [ A.href url ] [ H.text title ] ]
+                                    , td
+                                        [ H.a
+                                            [ A.href url
+                                            , A.target "_blank"
+                                            ]
+                                            [ H.text title ]
+                                        ]
                                     , td [ H.text status ]
                                     ]
                             )
